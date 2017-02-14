@@ -8,6 +8,8 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -31,7 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SpendingFragment.OnFragmentInteractionListener, ReceiptsFragment.OnFragmentInteractionListener {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
@@ -250,23 +252,39 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment fragment = null;
+        Class fragmentClass = null;
 
         if (id == R.id.nav_spending_limits) {
-            // Handle the camera action
+            Log.d("!!!!", "onItemSelected @ spending frag for drawer working..");
+            fragmentClass = SpendingFragment.class;
         } else if (id == R.id.nav_generate_report) {
-
+            return true;
         } else if (id == R.id.nav_export_photo) {
-
+            return true;
         } else if (id == R.id.nav_settings) {
-
+            return true;
         } else if (id == R.id.nav_my_receipts) {
-
+            Log.d("!!!!", "onItemSelected @ receipts frag for drawer working..");
+            fragmentClass = ReceiptsFragment.class;
         }
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.main_activity_container, fragment).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

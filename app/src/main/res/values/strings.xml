@@ -6,6 +6,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="nav_drawer_header_desc">Your tax-friendly companion :)</string>
+
     <string name="action_settings">Settings</string>
     <string name="action_spending_limits">Spending Limits</string>
     <string name="action_generate_report">View Report</string>
@@ -18,4 +20,7 @@
     <string name="view_total_tax">"Total Tax Paid on this Transaction"</string>
 
     <string name="view_defvalue_spent">0.00</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
