@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity
     private String mDollarsSpent = "";
     private String mTotalTax = "";
 
+    public void onNotificationsEnabled(View v)
+    {
+        Log.d("!!!!", "Notifications Enabled Checkbox Functioning..");
+    }
+
     //method to generate a unique name to save our pictures with to avoid
     //replacing files unintentionally
     private String getPictureFileName() {
@@ -288,6 +293,7 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 }

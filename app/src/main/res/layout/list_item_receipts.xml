@@ -7,6 +7,8 @@
     android:orientation="horizontal"
     android:padding="16dp">
 
+
+
     <ImageView
         android:id="@+id/list_item_icon"
         android:layout_width="wrap_content"
@@ -19,6 +21,8 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:paddingLeft="16dp">
+
+        <!-- Dummy data hardcoded for debugging purposes -->
 
         <TextView
             android:id="@+id/list_item_date_textview"
@@ -39,6 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <!-- Dummy data hardcoded for debugging purposes -->
 
         <TextView
             android:id="@+id/list_item_money_textview"

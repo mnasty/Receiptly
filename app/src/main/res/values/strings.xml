@@ -6,10 +6,10 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="nav_drawer_header_desc">Your tax-friendly companion :)</string>
+    <string name="nav_drawer_header_desc">Your wallet friendly companion :)</string>
 
     <string name="action_settings">Settings</string>
-    <string name="action_spending_limits">Spending Limits</string>
+    <string name="action_spending_limits">Spending at a Glance</string>
     <string name="action_generate_report">View Report</string>
     <string name="action_export_photos">Export Photo(s)</string>
     <string name="action_my_receipts">My Receipts</string>
@@ -21,6 +21,23 @@
 
     <string name="view_defvalue_spent">0.00</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Spinner Options -->
+    <string-array name="frag_spending_total_spinner_options">
+        <item>Week</item>
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
+
+    <!-- fragment_spending layout res -->
+    <string name="frag_spending_you_spent">You\'ve Spent</string>
+    <string name="frag_spending_dollar_sign">$</string>
+    <string name="frag_spending_this">| this</string>
+    <string name="frag_spending_more_than">If I spend more than</string>
+    <string name="frag_spending_notify_me">| notify me!</string>
+    <string name="frag_spending_this_amt_hint">this amount of money</string>
+    <string name="frag_spending_divider"> | </string>
+    <string name="frag_spending_total_tax">Total tax you\'ve paid: </string>
+    <string name="frag_spending_taxation_rate">Average rate of taxation: </string>
+    <string name="frag_spending_highest_trans">Your Highest Transactions (Did you really need it?):</string>
+
 </resources>
