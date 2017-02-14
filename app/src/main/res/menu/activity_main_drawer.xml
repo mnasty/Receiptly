@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/nav_group_one"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_my_receipts"
+            android:icon="@drawable/ic_chrome_reader_mode_black_24dp"
+            android:title="@string/action_my_receipts"/>
+        <item
+            android:id="@+id/nav_spending_limits"
+            android:icon="@drawable/ic_attach_money_black_24dp"
+            android:title="@string/action_spending_limits" />
+        <item
+            android:id="@+id/nav_generate_report"
+            android:icon="@drawable/ic_assessment_black_24dp"
+            android:title="@string/action_generate_report" />
+
+    </group>
+
+    <group
+        android:id="@+id/nav_group_two"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_export_photo"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/action_export_photos" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/action_settings" />
+    </group>
+
+</menu>
