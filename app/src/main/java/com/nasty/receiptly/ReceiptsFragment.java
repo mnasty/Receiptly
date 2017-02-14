@@ -7,6 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 /**
@@ -58,13 +62,42 @@ public class ReceiptsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_receipts, container, false);
+
+        ArrayList<String> dummyList = new ArrayList<>();
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+        dummyList.add("dummy data");
+
+        ArrayAdapter<String> itemsAdapter =
+                new ArrayAdapter<>(getContext(), R.layout.list_item_receipts, R.id.list_item_merchant_name_textview, dummyList);
+        ListView listView = (ListView) view.findViewById(R.id.receipts_list_view);
+        listView.setAdapter(itemsAdapter);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_receipts, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

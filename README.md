@@ -10,14 +10,14 @@ The application manifest is visible [here] (https://github.com/mnasty/Receiptly/
 
 UI Screenshots:
 
-![Main Activity Drawer](https://cloud.githubusercontent.com/assets/20830151/22911942/4287536c-f228-11e6-8c69-a612a81639b9.png)
+![Main Activity Drawer](https://cloud.githubusercontent.com/assets/20830151/22940201/bd53fdec-f2a6-11e6-8c4a-ced61dfbb436.png)
 
-![Main Activity Plus Selected](https://cloud.githubusercontent.com/assets/20830151/22912120/06970f5e-f229-11e6-8c12-6c324984c8b8.png)
+![Main Activity Plus Selected](https://cloud.githubusercontent.com/assets/20830151/22940388/4bd43afa-f2a7-11e6-9c17-fb6aed477919.png)
 
 ![Camera Focus](https://cloud.githubusercontent.com/assets/20830151/22911946/429e2768-f228-11e6-8301-28842747e254.png)
 
 ![Camera Use Picture?](https://cloud.githubusercontent.com/assets/20830151/22911945/429da874-f228-11e6-9d74-a5ad7182243c.png)
 
-![Input Data before Validation](https://cloud.githubusercontent.com/assets/20830151/22911947/429e56ac-f228-11e6-883b-cbcafb767baa.png)
+![Input Data before Validation](https://cloud.githubusercontent.com/assets/20830151/22940202/bd6548c2-f2a6-11e6-8e88-1ee726d2be2f.png)
 
-![Input Data After Validation](https://cloud.githubusercontent.com/assets/20830151/22911943/429ca212-f228-11e6-9734-b1887233eea3.png)
+![Input Data After Validation](https://cloud.githubusercontent.com/assets/20830151/22940204/bd692cda-f2a6-11e6-908f-50e9764cc9f2.png)

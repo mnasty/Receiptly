@@ -5,9 +5,9 @@
     tools:context="com.nasty.receiptly.ReceiptsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="hello receipts frag" />
+        android:id="@+id/receipts_list_view" />
 
 </FrameLayout>
