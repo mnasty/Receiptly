@@ -25,7 +25,7 @@
         <item
             android:id="@+id/nav_export_photo"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/action_export_photos" />
+            android:title="@string/action_export_data" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_manage"

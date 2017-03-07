@@ -2,6 +2,8 @@
 
     <string name="app_name">Receiptly</string>
 
+    <string name="content_authority">com.nasty.receiptly.provider</string>
+
     <!--Main Activity / Drawer Strings-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,7 +13,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_spending_limits">Spending at a Glance</string>
     <string name="action_generate_report">View Report</string>
-    <string name="action_export_photos">Export Photo(s)</string>
+    <string name="action_export_data">Export Data</string>
     <string name="action_my_receipts">My Receipts</string>
 
     <!--Get Receipt Data Dialog TextViews-->
@@ -39,5 +41,74 @@
     <string name="frag_spending_total_tax">Total tax you\'ve paid: </string>
     <string name="frag_spending_taxation_rate">Average rate of taxation: </string>
     <string name="frag_spending_highest_trans">Your Highest Transactions (Did you really need it?):</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_spend_recommendations">Enable spending recommendations</string>
+    <!--string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string-->
+
+    <string name="pref_title_display_name">Personalization</string>
+    <string name="pref_default_display_name">x</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Push my data to the cloud every..</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>5 minutes after adding last receipt</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>1</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">Spending notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
 
 </resources>

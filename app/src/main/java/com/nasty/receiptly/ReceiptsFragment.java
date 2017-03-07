@@ -71,6 +71,7 @@ public class ReceiptsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_receipts, container, false);
 
+        //TODO: replace this dummy data with a CursorLoader to pull the receipt records from the existing db
         ArrayList<String> dummyList = new ArrayList<>();
         dummyList.add("dummy data");
         dummyList.add("dummy data");
