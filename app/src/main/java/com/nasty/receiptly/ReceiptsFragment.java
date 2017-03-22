@@ -27,7 +27,7 @@ public class ReceiptsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private CursorAdapter mCursorAdapter;
-    public ListView listView;
+    private ListView listView;
 
     public ReceiptsFragment() {
 

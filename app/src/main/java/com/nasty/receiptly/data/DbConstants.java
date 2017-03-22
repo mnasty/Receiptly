@@ -42,6 +42,6 @@ public class DbConstants {
         public static final String COLUMN_TAX_PAID = "tax_paid";
 
         // Image thumbnail stored in db
-        public static final String COLUMN_RECEIPT_IMG = "receipt_img";
+        public static final String COLUMN_RECEIPT_IMG_PATH = "receipt_img";
     }
 }

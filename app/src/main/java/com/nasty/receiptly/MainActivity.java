@@ -35,11 +35,6 @@ public class MainActivity extends AppCompatActivity
     private final Context c = this;
     protected static File imageFile;
 
-    // Member vars to store numerical individual receipt data for the db
-//    private String mMerchantName = "";
-//    private String mDollarsSpent = "";
-//    private String mTotalTax = "";
-
     public void onNotificationsEnabled(View v)
     {
         Log.d("!!!!", "Notifications Enabled Checkbox Functioning..");
@@ -126,8 +121,6 @@ public class MainActivity extends AppCompatActivity
             // Get receipt data here from the user in a dialog
             Utility.getReceiptData(this);
             //TODO: Somehow refresh data after it's put in db
-
-            //TODO: put code to show thumbnails in listview
         }
         else
         {

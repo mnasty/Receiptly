@@ -130,6 +130,7 @@ public class Utility {
                     receiptValues.put(DbConstants.ReceiptsEntry.COLUMN_MERCHANT_NAME, merchantNameInput.getText().toString());
                     receiptValues.put(DbConstants.ReceiptsEntry.COLUMN_MONEY_SPENT, dollarsSpentInput.getText().toString());
                     receiptValues.put(DbConstants.ReceiptsEntry.COLUMN_TAX_PAID, totalTaxInput.getText().toString());
+                    receiptValues.put(DbConstants.ReceiptsEntry.COLUMN_RECEIPT_IMG_PATH, imageFile.getAbsolutePath());
 
                     // Throw into a vector to make it easier to convert to an array
                     valuesVector.add(receiptValues);

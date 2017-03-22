@@ -29,10 +29,9 @@ public class DbSchema extends SQLiteOpenHelper {
                 DbConstants.ReceiptsEntry.COLUMN_DATE + " TEXT UNIQUE NOT NULL, " +
                 DbConstants.ReceiptsEntry.COLUMN_MERCHANT_NAME + " TEXT NOT NULL, " +
                 DbConstants.ReceiptsEntry.COLUMN_MONEY_SPENT + " REAL NOT NULL, " +
-                DbConstants.ReceiptsEntry.COLUMN_TAX_PAID + " REAL NOT NULL " +
-                //for debugging purposes we wont require the image to be in the db yet
+                DbConstants.ReceiptsEntry.COLUMN_TAX_PAID + " REAL NOT NULL, " +
                 // TODO: downsize and save receipt image as a thumbnail in SQLite db or android system allocated app private storage
-                //DbConstants.ReceiptsEntry.COLUMN_RECEIPT_IMG + " BLOB " +
+                DbConstants.ReceiptsEntry.COLUMN_RECEIPT_IMG_PATH + " TEXT UNIQUE NOT NULL " +
                 " );";
 
         sqLiteDatabase.execSQL(SQL_CREATE_RECEIPTS_TABLE);
