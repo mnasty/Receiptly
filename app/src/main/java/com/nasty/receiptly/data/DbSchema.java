@@ -38,6 +38,8 @@ public class DbSchema extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQL_CREATE_RECEIPTS_TABLE);
     }
 
+
+
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         //! Note: the current database upgrade policy is to simply to discard the data and start over

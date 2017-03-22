@@ -15,8 +15,11 @@ import android.widget.TextView;
 
 import com.nasty.receiptly.data.DbConstants;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.Vector;
+
+import static com.nasty.receiptly.MainActivity.imageFile;
 
 /**
  * Created by Mick on 2/13/17.
@@ -27,6 +30,39 @@ public class Utility {
 
     static String logTag = "!!!!";
 
+    public static void deleteImage(Context c)
+    {
+        boolean success = true;
+        Log.d(logTag, "File Exists: " + Boolean.toString(imageFile.exists()));
+
+        if (imageFile.exists()) {
+            File file = new File(imageFile.toString());
+            success = file.delete();
+        }
+        if (!success) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(c);
+            builder.setTitle("Error!");
+            builder.setMessage("The receipt photo you took was unable to be deleted. This could be due to the denial of storage permissions to this app. " +
+                   "Check to ensure this app has proper access to your phone storage. Please note you will need to delete the picture you just took yourself if you don't want it.");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+
+            // Build the dialog into a alert dialog object
+            final AlertDialog receiptDataDialog = builder.show();
+            receiptDataDialog.setCanceledOnTouchOutside(false);
+
+            Log.d(logTag, "Image Deletion Error @ Cancel Button On Alert Dialog");
+        }
+        else
+        {
+            Log.d(logTag, "Deleted Image Successfully Upon Cancellation");
+        }
+    }
+
     @SuppressWarnings("all")
     public static String getFormattedDateTime()
     {
@@ -35,7 +71,7 @@ public class Utility {
         return date = df.format(Calendar.getInstance().getTime());
     }
 
-    protected static void getReceiptData(Context c)
+    protected static void getReceiptData(final Context c)
     {
         final Context thisContext = c;
 
@@ -98,13 +134,13 @@ public class Utility {
                     // Throw into a vector to make it easier to convert to an array
                     valuesVector.add(receiptValues);
 
-                   if (valuesVector.size() > 0) {
-                       // Convert to an array of cv's
+                    if (valuesVector.size() > 0) {
+                        // Convert to an array of cv's
                         ContentValues[] cvArray = new ContentValues[valuesVector.size()];
                         valuesVector.toArray(cvArray);
-                       // Run a bulkInsert to the db using the content provider framework
+                        // Run a bulkInsert to the db using the content provider framework
                         thisContext.getContentResolver().bulkInsert(DbConstants.ReceiptsEntry.CONTENT_URI, cvArray);
-                   }
+                    }
                 }
                 catch (Exception e) {
                     Log.d(logTag, e.toString());
@@ -114,7 +150,7 @@ public class Utility {
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                //TODO: put some logic here to delete the corresponding photo
+                deleteImage(thisContext);
                 dialog.cancel();
             }
         });
@@ -137,33 +173,15 @@ public class Utility {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
                 //input validation every time the text changes at all
                 //(not null fields)
-                if (!merchantNameInput.getText().toString().isEmpty()) {
+                if (merchantNameInput.getText().toString().isEmpty() || dollarsSpentInput.getText().toString().isEmpty() || totalTaxInput.getText().toString().isEmpty()) {
 
-                    okButton.setEnabled(true);
+                    okButton.setEnabled(false);
                 }
                 else
                 {
-                    okButton.setEnabled(false);
-                }
-
-                if (!dollarsSpentInput.getText().toString().isEmpty()) {
-
                     okButton.setEnabled(true);
-                }
-                else
-                {
-                    okButton.setEnabled(false);
-                }
-
-                if (!totalTaxInput.getText().toString().isEmpty()) {
-
-                    okButton.setEnabled(true);
-                }
-                else {
-                    okButton.setEnabled(false);
                 }
             }
 

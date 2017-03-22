@@ -1,9 +1,11 @@
 package com.nasty.receiptly;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -18,20 +20,25 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.nasty.receiptly.Utility.deleteImage;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, SpendingFragment.OnFragmentInteractionListener, ReceiptsFragment.OnFragmentInteractionListener {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    private final Context c = this;
+    protected static File imageFile;
 
     // Member vars to store numerical individual receipt data for the db
-    private String mMerchantName = "";
-    private String mDollarsSpent = "";
-    private String mTotalTax = "";
+//    private String mMerchantName = "";
+//    private String mDollarsSpent = "";
+//    private String mTotalTax = "";
 
     public void onNotificationsEnabled(View v)
     {
@@ -68,18 +75,22 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Disable the file uri exposure check to avoid exception and ensure compatibility with other apps on android N and <
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Create our implicit intent to the camera app of the users choice
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                // Get a reference to the sd public root dir and then the framework pictures folder
+                // Get a reference to the sd public root dir and then the framework pictures folder /Receiptly
                 File imageDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 // Generate our unique file name
                 String fileName = getPictureFileName();
                 // Create a file object at the /Pictures directory with a unique name
-                File imageFile = new File(imageDirectory, fileName);
+                imageFile = new File(imageDirectory, fileName);
                 // Swap it to an android friendly Uri
                 Uri imageUri = Uri.fromFile(imageFile);
                 // Package the uri with our implicit intent and let the framework do the rest
@@ -87,7 +98,11 @@ public class MainActivity extends AppCompatActivity
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
 
+                } else {
+                    Toast noCameraToast = Toast.makeText(c, "Error: No working camera app installed on this device! Please visit the play store and download a suitable camera app to continue.", Toast.LENGTH_LONG);
+                    noCameraToast.show();
                 }
+
             }
         });
 
@@ -110,7 +125,13 @@ public class MainActivity extends AppCompatActivity
         {
             // Get receipt data here from the user in a dialog
             Utility.getReceiptData(this);
+            //TODO: Somehow refresh data after it's put in db
+
             //TODO: put code to show thumbnails in listview
+        }
+        else
+        {
+            deleteImage(this);
         }
     }
 
@@ -182,4 +203,5 @@ public class MainActivity extends AppCompatActivity
 
         return true;
     }
+
 }
